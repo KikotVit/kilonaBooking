@@ -4,10 +4,10 @@ import { Screen } from '../../components';
 import { IRoutes, store } from '../../store/mock.store';
 import { SCREEN_PADDING } from '../../theme/constants';
 import { RouteCard } from './components/route.card.component';
+import { useRouteContext } from '../../context/route.context';
 
 
 export const SelectScreen = () => {
-
     return (
         <Screen
         >
@@ -22,7 +22,7 @@ export const SelectScreen = () => {
                 <FlatList 
                     data={store}
                     style={FLAT_LIST}
-                    renderItem={({ item }: {item: IRoutes}) => <RouteCard key={item.routeName} {...item} />}
+                    renderItem={({ item }: { item: IRoutes }) => <RouteCard key={item.routeName} {...item}/>}
                     ItemSeparatorComponent={() => <View style={{ height: SCREEN_PADDING }}/>}
                 />
             </View>
@@ -33,7 +33,6 @@ export const SelectScreen = () => {
 
 const ROOT: ViewStyle = {
     alignSelf: 'center',
-    marginBottom: SCREEN_PADDING,
     rowGap: SCREEN_PADDING,
     alignItems: 'center',
 };

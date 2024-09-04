@@ -3,14 +3,18 @@ import { IRoutes } from '../../../store/mock.store';
 import { Image, ImageStyle, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { palette, SCREEN_PADDING } from '../../../theme';
 import { useNavigation } from '@react-navigation/native';
+import { useRouteContext } from '../../../context/route.context';
 
 export const RouteCard = (item: IRoutes) => {
     const { routeName, routeConnection } = item;
 
     const navigation = useNavigation();
-
+    
+    const { setCurrentRoute } = useRouteContext();
+    
     const onPress = () => {
-        navigation.navigate('seats', { item });
+        setCurrentRoute(item);
+        navigation.navigate('seats');
     };
 
     return (

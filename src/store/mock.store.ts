@@ -1,4 +1,4 @@
-interface ISeat {
+export interface ISeat {
     id: string,
     number: string,
     isReserved: boolean,
@@ -165,92 +165,92 @@ export const store: IRoutes[] = [
             {
                 id: '1',
                 number: '1',
-                isReserved: false,
+                isReserved: true,
             },
             {
                 id: '2',
                 number: '2',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '3',
                 number: '3',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '4',
                 number: '4',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '5',
                 number: '5',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '6',
                 number: '6',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '7',
                 number: '7',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '8',
                 number: '8',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '9',
                 number: '9',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '10',
                 number: '10',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '11',
                 number: '11',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '12',
                 number: '12',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '13',
                 number: '13',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '14',
                 number: '14',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '15',
                 number: '1',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '16',
                 number: '2',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '17',
                 number: '3',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '18',
                 number: '4',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '19',
@@ -260,22 +260,22 @@ export const store: IRoutes[] = [
             {
                 id: '20',
                 number: '6',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '21',
                 number: '7',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '22',
                 number: '8',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '23',
                 number: '9',
-                isReserved: true,
+                isReserved: false,
             },
             {
                 id: '24',
