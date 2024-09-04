@@ -14,10 +14,7 @@ export const INITIAL_REGION = {
 
 const Map = ((props: MapViewProps, ref) => (
     <View
-        style={{
-            width: '100%',
-            height: '100%',
-        }}
+        style={MAP_VIEW_CONTAINER}
     >
         <MapView
             ref={ref} 
@@ -36,6 +33,9 @@ const MapComponent = React.memo(React.forwardRef(Map));
 export const MapScreen = () => {
     const { route } = useRouteContext();
     const mapRef = useRef();
+
+    // TODO add check permission and open settings
+    // animate camera to user location
 
     return (
         <Screen
@@ -58,11 +58,17 @@ export const MapScreen = () => {
 const ROOT: ViewStyle = {
     alignSelf: 'center',
     width: '100%',
+    height: '100%',
     rowGap: SCREEN_PADDING,
-    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+};
+
+const MAP_VIEW_CONTAINER: ViewStyle = {
+    width: '100%',
+    height: '90%',
 };
 
 const MAP_VIEW: ViewStyle = {
     width: '100%',
-    flex: 1,
+    height: '100%',
 };
