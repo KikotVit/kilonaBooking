@@ -53,7 +53,7 @@ export const MapScreen = () => {
         }
     }, [isFocused]);
     
-
+    // TODO fix on android
     const animateCamera = (latitude: number, longitude: number) => {
         if (mapRef?.current && mapRef.current.animateCamera) {
             mapRef?.current.animateCamera({

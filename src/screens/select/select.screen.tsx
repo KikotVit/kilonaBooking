@@ -22,8 +22,10 @@ export const SelectScreen = () => {
                 <FlatList 
                     data={store}
                     style={FLAT_LIST}
+                    showsVerticalScrollIndicator={false}
                     renderItem={({ item }: { item: IRoutes }) => <RouteCard key={item.routeName} {...item}/>}
                     ItemSeparatorComponent={() => <View style={{ height: SCREEN_PADDING }}/>}
+                    ListFooterComponent={() => <View style={{ height: 80 }} />}
                 />
             </View>
             
