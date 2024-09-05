@@ -1,9 +1,11 @@
-import React, { forwardRef, useRef } from 'react';
-import { Text, View, ViewStyle } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, ViewStyle } from 'react-native';
 import { RouteInfoHeader, Screen } from '../../components';
 import MapView, { MapViewProps, PROVIDER_GOOGLE } from 'react-native-maps';
 import { useRouteContext } from '../../context/route.context';
 import { SCREEN_PADDING } from '../../theme';
+import { useIsFocused } from '@react-navigation/native';
+import { getCurrentPosition, requestGeolocationPermission } from '../../utils/geoposition';
 
 export const INITIAL_REGION = {
     latitude: 48,
@@ -31,11 +33,37 @@ const Map = ((props: MapViewProps, ref) => (
 const MapComponent = React.memo(React.forwardRef(Map));
 
 export const MapScreen = () => {
+
+    const isFocused = useIsFocused();
+
     const { route } = useRouteContext();
     const mapRef = useRef();
 
-    // TODO add check permission and open settings
-    // animate camera to user location
+    const initializeMap = async () => {
+        const hasPermission = await requestGeolocationPermission();
+        if (hasPermission) {
+            const position = await getCurrentPosition();
+            animateCamera(position.coords.latitude, position.coords.longitude);
+        }
+    };
+
+    useEffect(() => {
+        if (isFocused) {
+            initializeMap();
+        }
+    }, [isFocused]);
+    
+
+    const animateCamera = (latitude: number, longitude: number) => {
+        if (mapRef?.current && mapRef.current.animateCamera) {
+            mapRef?.current.animateCamera({
+                center: { latitude, longitude },
+                pitch: 1,
+                heading: 1,
+                zoom: 15,
+            });
+        }
+    };
 
     return (
         <Screen
